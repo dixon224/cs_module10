@@ -5,14 +5,16 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import AllItems from "./pages/AllItems";
 import AddItem from "./pages/AddItem";
+import useAuth from "./context/useAuth";
 function App() {
+  const { user } = useAuth();
   return (
     <Routes>
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={!user ? <SignUp /> : <Home />} />
+      <Route path="/login" element={!user ? <Login /> : <Home />} />
       <Route path="/" element={<Home />} />
-      <Route path="/all_items" element={<AllItems />} />
-      <Route path="/add_item" element={<AddItem />} />
+      <Route path="/all_items" element={user ? <AllItems /> : <Login />} />
+      <Route path="/add_item" element={user ? <AddItem /> : <Login />} />
     </Routes>
   );
 }
