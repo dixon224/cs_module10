@@ -1,0 +1,39 @@
+import axios from "axios";
+
+const baseURL = "http://localhost:3000";
+
+const http = axios.create({
+  baseURL,
+  withCredentials: true,
+});
+
+export async function loginUser(data) {
+  const res = await http.post("/user/login", data);
+  return res.data;
+}
+
+export async function logoutUser() {
+  const res = await http.post("/user/logout");
+  return res.data;
+}
+
+// export async function getMe() {
+//   const res = await http.get("/auth/me");
+//   return res.data;
+// }
+
+// export async function logoutUser() {
+//   const res = await http.post("/auth/logout");
+//   return res.data;
+// }
+http.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return config;
+});
+
+export default http;
