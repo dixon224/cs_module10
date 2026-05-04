@@ -20,7 +20,11 @@ function Navbar() {
 
   return (
     <nav className="bg-yellow-300 text-white px-8 py-4 flex justify-between items-center">
-      <h1 className="text-2xl font-bold">{user ? user.name : "CS_Module10"}</h1>
+      <Link to={"/"}>
+        <h1 className="text-2xl font-bold">
+          {user ? user.name : "CS_Module10"}
+        </h1>
+      </Link>
 
       <div>
         {!user ? (

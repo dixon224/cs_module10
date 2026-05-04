@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 const Home = () => {
@@ -18,25 +19,32 @@ const Home = () => {
           </p>
 
           <div className="mt-6 flex justify-center gap-4 flex-wrap">
-            <div className="bg-white rounded-xl px-6 py-3 shadow text-center">
-              <p className="text-2xl font-bold text-black">🔐</p>
-              <p className="text-sm text-gray-600">Login</p>
-            </div>
+            <Link to={"/login"}>
+              <div className="bg-white rounded-xl px-6 py-3 shadow text-center">
+                <p className="text-2xl font-bold text-black">🔐</p>
+                <p className="text-sm text-gray-600">Login</p>
+              </div>
+            </Link>
+            <Link to={"/signup"}>
+              <div className="bg-white rounded-xl px-6 py-3 shadow text-center">
+                <p className="text-2xl font-bold text-black">📝</p>
+                <p className="text-sm text-gray-600">SignUp</p>
+              </div>
+            </Link>
 
-            <div className="bg-white rounded-xl px-6 py-3 shadow text-center">
-              <p className="text-2xl font-bold text-black">📝</p>
-              <p className="text-sm text-gray-600">Register</p>
-            </div>
+            <Link to={"/add_item"}>
+              <div className="bg-white rounded-xl px-6 py-3 shadow text-center">
+                <p className="text-2xl font-bold text-black">➕</p>
+                <p className="text-sm text-gray-600">Add New Item</p>
+              </div>
+            </Link>
 
-            <div className="bg-white rounded-xl px-6 py-3 shadow text-center">
-              <p className="text-2xl font-bold text-black">➕</p>
-              <p className="text-sm text-gray-600">Add New Item</p>
-            </div>
-
-            <div className="bg-white rounded-xl px-6 py-3 shadow text-center">
-              <p className="text-2xl font-bold text-black">🛒</p>
-              <p className="text-sm text-gray-600">All Items</p>
-            </div>
+            <Link to={"/all_items"}>
+              <div className="bg-white rounded-xl px-6 py-3 shadow text-center">
+                <p className="text-2xl font-bold text-black">🛒</p>
+                <p className="text-sm text-gray-600">All Items</p>
+              </div>
+            </Link>
           </div>
         </div>
 
@@ -57,7 +65,7 @@ const Home = () => {
               🛍️ Items Marketplace
             </h2>
             <p className="text-sm text-gray-600 mt-2">
-              View all items available for sale here.
+              All items available for sale will be listed for you.
             </p>
           </div>
 
