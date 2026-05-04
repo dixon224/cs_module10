@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:3000";
+const baseURL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 const http = axios.create({
   baseURL,
@@ -17,15 +17,6 @@ export async function logoutUser() {
   return res.data;
 }
 
-// export async function getMe() {
-//   const res = await http.get("/auth/me");
-//   return res.data;
-// }
-
-// export async function logoutUser() {
-//   const res = await http.post("/auth/logout");
-//   return res.data;
-// }
 http.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
